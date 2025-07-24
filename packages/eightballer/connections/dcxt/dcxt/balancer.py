@@ -599,7 +599,7 @@ class BalancerClient(BaseErc20Exchange):
     def _do_eoa_approval(self, input_token_address, machine_amount, vault, contract) -> None:
         """Do the EOA approval."""
         del input_token_address
-        func = contract.functions.approve(vault.address, int(machine_amount * 1e240))
+        func = contract.functions.approve(vault.address, machine_amount * 3)
         return self._do_txn(func)
 
     def _do_txn(self, func):
